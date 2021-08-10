@@ -5,6 +5,9 @@ import com.pnbaocuong.productservice.entity.ProductPriceHistory;
 import com.pnbaocuong.productservice.repository.ProductPriceHistoryRepository;
 import com.pnbaocuong.productservice.repository.ProductRepository;
 import com.querydsl.core.types.Predicate;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -12,13 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * This class annotated with Transactional only because
- * - We need transaction here because we want to keep track price history in update product operation.
- * - Default Propagation is REQUIRED and it meets our needs.
- * - Default Isolation is DEFAULT and it will use default isolation level of underlying data store
- * And default of PostgreSQL is READ COMMITTED which meets our needs also.
- */
 @Service
 @Transactional
 public class ProductService {

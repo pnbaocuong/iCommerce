@@ -4,6 +4,9 @@ import com.pnbaocuong.productservice.entity.Product;
 import com.pnbaocuong.productservice.model.ProductRequest;
 import com.pnbaocuong.productservice.service.ProductService;
 import com.querydsl.core.types.Predicate;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.binding.QuerydslPredicate;
@@ -17,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping(ProductController.PRODUCT_PATH)
 public class ProductController {
+	protected Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     public static final String PRODUCT_PATH = "/products";
     private final ProductService productService;
 

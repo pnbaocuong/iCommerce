@@ -27,7 +27,7 @@ public class CustomerAuditAspect {
         this.source = source;
     }
 
-    @Before("execution(* com.nthieu.productservice.controller.ProductController.getProductDetail(..))")
+    @Before("execution(* com.pnbaocuong.productservice.controller.ProductController.getProductDetail(..))")
     @Async
     public void logUserViewProduct(JoinPoint joinPoint) {
         Object[] methodArguments = joinPoint.getArgs();
@@ -38,7 +38,7 @@ public class CustomerAuditAspect {
         source.output().send(message);
     }
 
-    @Before("execution(* com.nthieu.productservice.controller.ProductController.getAllProducts(..))")
+    @Before("execution(* com.pnbaocuong.productservice.controller.ProductController.getAllProducts(..))")
     @Async
     public void logUserFilterAndSort(JoinPoint joinPoint) {
         Object[] methodArguments = joinPoint.getArgs();
